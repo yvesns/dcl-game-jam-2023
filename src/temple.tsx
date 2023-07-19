@@ -8,12 +8,12 @@ import { NeatFlappyBird } from "../components/neatFlappyBird/neatFlappyBird";
 import { PillarMinigame } from "./pillarMinigame";
 import { onSceneReadyObservable } from '@dcl/sdk/observables'
 
-onSceneReadyObservable.add(() => {
-    movePlayerTo({
-        newRelativePosition: Vector3.create(0, 20.31, 23),
-        cameraTarget: Vector3.create(0, 20.35, 15.68),
-    })
-})
+// onSceneReadyObservable.add(() => {
+//     movePlayerTo({
+//         newRelativePosition: Vector3.create(0, 20.31, 23),
+//         cameraTarget: Vector3.create(0, 20.35, 15.68),
+//     })
+// })
 
 enum Item {
     EMERALD,

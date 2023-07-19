@@ -1,6 +1,8 @@
-import { CameraModeArea, CameraType, Transform, engine } from "@dcl/sdk/ecs";
+import { CameraModeArea, CameraType, InputAction, PointerEventType, Transform, engine, inputSystem } from "@dcl/sdk/ecs";
 import { Temple } from "./temple";
 import { Vector3 } from "@dcl/sdk/math";
+import { onSceneReadyObservable } from "@dcl/sdk/observables";
+import { movePlayerTo } from "~system/RestrictedActions";
 
 export function main() {
   const temple = new Temple()
@@ -12,4 +14,13 @@ export function main() {
   })
 
   Transform.create(entity, {position: Vector3.create(0, 0, 0)})
+
+  engine.addSystem(() => {
+    if (inputSystem.isTriggered(InputAction.IA_SECONDARY, PointerEventType.PET_DOWN)){
+      movePlayerTo({
+        newRelativePosition: Vector3.create(0, 20.31, 23),
+        cameraTarget: Vector3.create(0, 20.31, 18)
+      })
+    }
+})
 }
